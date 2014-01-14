@@ -1,0 +1,149 @@
+########################################################
+#Process password files
+########################################################
+
+source "gpg --textmode -d ~/.mutt/.passwd.gpg |"
+
+#Account Hooks
+account-hook . "unset imap_user; unset imap_pass; unset tunnel"
+account-hook        "imaps://$my_yahoo_user@imap.mail.yahoo.com/" "\
+    set imap_user   = $my_yahoo_user \
+        imap_pass   = $my_yahoo_pass"
+account-hook        "imaps://$my_manly_user@mail.vfemail.net/" "\
+    set imap_user   = $my_manly_user \
+        imap_pass   = $my_manly_pass"
+
+# Folders, mailboxes and folder hooks
+#
+# Setup for manly user:
+set folder          = imaps://$my_manly_user@mail.vfemail.net/
+mailboxes           = +INBOX 
+set spoolfile       = +INBOX 
+folder-hook         imaps://$my_manly_user@mail.vfemail.net/ "\
+    set folder      = imaps://$my_manly_user@mail.vfemail.net/ \
+        spoolfile   = +INBOX \
+        from        = 'realname <email> ' \
+        realname    = 'realname' \
+        smtp_url    = smtps://$my_manly_user:$my_manly_pass@mail.vfemail.net:465"
+
+ 
+# Setup for yahoo user:
+set folder          = imaps://$my_yahoo_user@imap.mail.yahoo.com/
+mailboxes           = +INBOX ='Circe Papers' ='Public Discourse' ='Touchstone'
+set spoolfile       = +INBOX
+folder-hook         imaps://$my_yahoo_user@imap.mail.yahoo.com/ "\
+    set folder      = imaps://$my_yahoo_user@imap.mail.yahoo.com/ \
+        spoolfile       = +INBOX \
+        from            = 'realname <email> ' \
+        realname        = 'realname' \
+        smtp_url        = smtps://$my_yahoo_user:$my_yahoo_pass@smtp.mail.yahoo.com:465"
+
+# Macros
+macro index <F1> "y2<return><return>" # jump to manlymail inbox
+macro index <F2> "y3<return><return>" # jump to yahoomail inbox
+
+macro index <f5> 'c =inbox<enter>'
+macro pager <f5> 'c =inbox<enter>'
+macro index <f6> 'c =Draft<enter>'
+macro pager <f6> 'c =Draft<enter>'
+macro index <f7> 'c =Sent<enter>'
+macro pager <f7> 'c =Sent<enter>'
+macro index <f9> 'c =PublicDiscourse<enter>'
+macro index <f10> 'c =Touchstone<enter>'
+macro index <f11> 'c =Circe_Papers<enter>'
+macro index <f4> 'D*<enter>' "Delete all messages in mailbox"
+
+# Bogofilter training
+macro index S 's=SPAM'      "Learn as spam and save to SPAM"
+macro pager S 's=SPAM'      "Learn as spam and save to SPAM"
+macro index H 's=archive'   "Learn as ham and save"
+macro pager H 's=archive'   "Learn as ham and save"
+
+########################################################
+####  Colors
+########################################################
+color quoted    yellow     default
+color quoted1   cyan       default
+color quoted2   magenta    default
+color quoted3   green      default
+color quoted4   red        default
+
+color signature blue default
+color normal    white black
+color status    brightgreen blue
+color indicator brightyellow black
+color error     red black
+color tree      yellow black
+color attachment blue default
+color index     cyan black (calomel.org)
+color header    green black .*
+color header    brightred  black (^From\:|^Reply-To\:)
+color header    brightyellow black (^To\:|^cc\:|^Cc\:)
+
+color body      magenta      default "(ftp|http|https)://[^ ]+"
+color body      magenta      default [-a-z_0-9.]+@[-a-z_0-9.]+
+color body      brightgreen  default "^(gpg: )?Good signature"
+color body      brightgreen  default "^(gpg: )?encrypted"
+color body      brightred    default "^(gpg: )?Bad signature"
+color body      red          default "^(gpg: )?warning:"
+color body      red          default "^(gpg: ).*failed:"
+
+color message    magenta        default # info messages
+color search     brightyellow   red     # search matches
+color tilde      brightmagenta  default # ~ at bottom of msg
+color markers    red            default # + at beginning of wrapped lines
+color hdrdefault cyan           default # default header lines
+color bold       cyan           default # hiliting bold patterns in body
+color underline  cyan           default # hiliting underlined patterns in body
+
+color index     green          default  ~T      # Tagged
+color index     red            default  ~D      # Deleted
+
+#######################################################
+### Options
+#######################################################
+bind editor <BackSpace> backspace
+push <show-version>
+
+#Sourced config files
+source ~/.mutt/aliases
+source ~/.mutt/gpg.rc
+#source ~/.mutt/lists
+source $HOME/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+
+set status_format="-%r-Mutt: %f --------[Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]-%>-----%h-(%P)"
+
+# Testing section
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+
+# Config variables
+set alias_file="~/.mutt/aliases"
+set abort_nosubject=no
+set abort_unmodified=no
+set beep=no
+set confirmappend=no
+set copy=ask-no  
+set crypt_autosign=yes
+set crypt_replysignencrypted=yes
+#set crypt_use_gpgme
+set delete=yes
+set fast_reply=yes
+set fcc_attach=ask-no
+set forward_edit=ask-yes
+set forward_format="Fwd: %s"
+#set header_cache=""
+set hidden_host=yes #Should(?) prevent autogeneration of hostnames
+set index_format="%3C %Z %(%D) From: %-40.40F Subject: %s"
+set maildir_trash=no #setting to yes keeps messages in mailbox (ugh!)
+set markers=no
+set pager_stop=yes
+set resolve=no #prevents cursor from being auto-advanced. Useful?
+set signature="~/.mutt/signature"
+set sort=threads
+set sort_aux=last-date-received
+set status_on_top=yes
+set use_domain=no
+set mail_check=90
+set timeout=15
