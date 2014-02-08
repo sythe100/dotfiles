@@ -56,6 +56,7 @@ set ofu=syntaxcomplete#Complete
 " Word Wrapping
 set formatoptions=l
 set lbr
+set textwidth=79
 
 " Generic Key Mappings
 map :Q :q!
