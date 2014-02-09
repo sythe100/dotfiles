@@ -29,7 +29,7 @@ folder-hook         imaps://$my_manly_user@mail.vfemail.net/ "\
  
 # Setup for yahoo user:
 set folder          = imaps://$my_yahoo_user@imap.mail.yahoo.com/
-mailboxes           = +INBOX ='Circe Papers' ='Public Discourse' ='Touchstone'
+mailboxes           = +INBOX ='Circe_Papers' ='PublicDiscourse' ='Touchstone'
 set spoolfile       = +INBOX
 folder-hook         imaps://$my_yahoo_user@imap.mail.yahoo.com/ "\
     set folder      = imaps://$my_yahoo_user@imap.mail.yahoo.com/ \
