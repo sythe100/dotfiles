@@ -28,7 +28,7 @@ alias shred='shred -u'
 alias booterror='sudo journalctl -b -rp3'
 alias ls='ls --group-directories-first --color=tty'
 alias svim='sudo vim'
-alias python='python2.7'
+#alias python='python2.7'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -69,4 +69,4 @@ PATH=$PATH:$HOME/bin:$HOME/scripts
 DEFAULT_USER="aaron"
 
 # Environment Variables
-export PYTHONPATH=/usr/lib/python3.3/site-packages
+export PYTHONPATH=/usr/lib/python3.4/site-packages
