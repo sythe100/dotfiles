@@ -1,0 +1,12 @@
+g:default
+-7 http://arstechnica.com/information-technology/2005/12/linux-20051218/2/ Fish:
+-6 https://www.archlinux.org/ Arch
+-5 http://suckless.org/ suckless.org
+-4 http://st.suckless.org/ suckless.org
+-3 http://st.suckless.org/patches/ patches
+-2 http://st.suckless.org/patches/solarized_color_scheme Solarized
+-1 https://bbs.archlinux.org/viewtopic.php?id=164108 Getting
+0|0 https://bbs.archlinux.org/viewtopic.php?id=168392 setcolors
+1 https://aur.archlinux.org/packages/setcolors-git/ AUR
+-1 https://duckduckgo.com/?q=remove%20file%20from%20git%20tracking remove
+0|0 http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git Stop
