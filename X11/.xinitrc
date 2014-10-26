@@ -2,7 +2,7 @@
 xset -b
 dwmstatus &
 st -e tmux &                            # Start st with tmux embedded; tag 1
-#tabbed vimprobable2 -e &                # Start vimprobable in tabbed; tag 2
+dwb &                                   # Start dwb
 #st -c Mutt -e mutt &                    # Start an st instance running mutt; tag 3
 #zim &                                   # Start the desktop wiki; tag 4
 #st -c Ranger -e ranger &                # Start an st instance running a file browser; tag 8
