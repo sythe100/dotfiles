@@ -17,6 +17,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-scripts/pydoc.vim'
 Plugin 'klen/rope-vim'
+Plugin 'scrooloose/syntastic'
 "Plugin 'tomtom/tlib_vim'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -104,8 +105,10 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Generic Key Mappings
+" Key Mappings
 map :Q :q!
+nmap j gj
+nmap k gk
 
 "Spell check
 function! ToggleSpell()
@@ -177,3 +180,9 @@ set backspace=2
 set fillchars+=stl:\ ,stlnc:\
 set ambiwidth=single
 set guifont=Droid\ Sans\ Mono\ for\ Powerline
+
+" Syntastic checkers
+" C checkers
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_auto_refresh_includes = 1
+let g:syntastic_c_compiler_options = '-ansi'
