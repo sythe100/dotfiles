@@ -142,7 +142,7 @@ set smarttab
 set showmode
 
 " Paste from clipboard
-nmap <c-v> "+gp
+"nmap <c-v> "+gp
 " Copy to clipboard
 vmap <c-c> "+y
 
