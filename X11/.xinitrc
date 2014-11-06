@@ -9,7 +9,7 @@ dwb &                                   # Start dwb
 #st -c Sys -e htop &                     # Start tmux with various sys monitory tools; tag 9
 
 # set background
-feh --bg-scale /home/aaron/Wallpapers/paisley-dwm.png
+feh --bg-scale /home/aaron/Wallpapers/simple/nes.png
 
 # Start the window manager
 exec dwm 
