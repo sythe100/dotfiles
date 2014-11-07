@@ -18,6 +18,7 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-scripts/pydoc.vim'
 Plugin 'klen/rope-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'tomtom/tlib_vim'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -64,6 +65,9 @@ map <leader>td <Plug>TaskList
 
 " Pep8 plugin
 let g:pep8_map='<leader>8'
+
+" Nerdtreee
+map <C-n> :NERDTreeToggle<CR>
 
 " Show line numbers
 set number
