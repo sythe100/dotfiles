@@ -7,7 +7,7 @@ xset -b
 #st -c Sys -e htop &                     # Start tmux with various sys monitory tools; tag 9
 #
 # set background
-#feh --bg-scale /home/aaron/Wallpapers/simple/nes.png
+feh --bg-scale /home/aaron/Wallpapers/simple/nes.png
 
 # Start the window manager
-exec i3
+exec i3 
