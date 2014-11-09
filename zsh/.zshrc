@@ -70,3 +70,4 @@ DEFAULT_USER="aaron"
 
 # Environment Variables
 export PYTHONPATH=/usr/lib/python3.4/site-packages
+export EDITOR="vim"

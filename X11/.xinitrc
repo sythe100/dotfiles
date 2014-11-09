@@ -7,7 +7,13 @@ xset -b
 #st -c Sys -e htop &                     # Start tmux with various sys monitory tools; tag 9
 #
 # set background
-feh --bg-scale /home/aaron/Wallpapers/simple/nes.png
+feh --bg-scale /home/aaron/Wallpapers/simple/windy.png
+
+# Source Xresourses
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+#Enable compositing
+compton -cCb -o0
 
 # Start the window manager
 exec i3 
