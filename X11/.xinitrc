@@ -10,7 +10,8 @@ xset -b
 feh --bg-scale /home/aaron/Wallpapers/simple/windy.png
 
 # Source Xresourses
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+#[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+xrload lolitastic.theme
 
 #Enable compositing
 compton -cCb -o0
