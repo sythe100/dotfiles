@@ -11,10 +11,10 @@ general {
         interval = 5
 }
 
-order += "disk /"
-order += "disk /home"
+#order += "disk /"
+#order += "disk /home"
 order += "wireless wlan0"
-order += "load"
+#order += "load"
 order += "tztime local"
 
 wireless wlan0 {
