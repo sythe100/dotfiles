@@ -112,6 +112,9 @@ bindcode 123 exec --no-startup-id amixer set Master 5%+
 bindcode 122 exec --no-startup-id amixer set Master 5%-
 bindcode 121 exec --no-startup-id amixer set Master toggle
 
+# Keybind to take a scrot
+bindcode 107 exec --no-startup-id scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/scrots/'
+
 # Variables
 set $WS1 "1:term"
 set $WS2 "2:web"
