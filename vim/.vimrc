@@ -20,6 +20,7 @@ Plugin 'klen/rope-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'tomtom/tlib_vim'
+Plugin 'ervandew/supertab'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
