@@ -67,6 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 PATH=$PATH:$HOME/bin:$HOME/scripts
 DEFAULT_USER="aaron"
+bindkey -v # sets the commandline to use  vi keybinds vice emacs.
 
 # Environment Variables
 export PYTHONPATH=/usr/lib/python3.4/site-packages
