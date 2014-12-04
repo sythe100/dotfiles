@@ -11,12 +11,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'nvie/vim-flake8'
-Plugin 'nvie/vim-pyunit'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-pyunit'
 Plugin 'sjl/gundo.vim'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'vim-scripts/pydoc.vim'
-Plugin 'klen/rope-vim'
+"Plugin 'vim-scripts/pydoc.vim'
+"Plugin 'klen/rope-vim'
+Plugin 'klen/python-mode'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'tomtom/tlib_vim'
@@ -52,8 +53,8 @@ set foldmethod=indent
 set foldlevel=99
 
 " Rope keybinding
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>r :RopeRename<CR>
 
 " Ack Plugin
 nmap <leader>a <Esc>:Ack!
@@ -65,7 +66,7 @@ nmap <leader>g :GundoToggle<CR>
 map <leader>td <Plug>TaskList
 
 " Pep8 plugin
-let g:pep8_map='<leader>8'
+"let g:pep8_map='<leader>8'
 
 " Nerdtreee
 map <C-n> :NERDTreeToggle<CR>
