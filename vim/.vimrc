@@ -8,25 +8,24 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'klen/rope-vim'
 "Plugin 'nvie/vim-flake8'
 "Plugin 'nvie/vim-pyunit'
-Plugin 'sjl/gundo.vim'
-Plugin 'fholgado/minibufexpl.vim'
-"Plugin 'vim-scripts/pydoc.vim'
-"Plugin 'klen/rope-vim'
-Plugin 'klen/python-mode'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
 "Plugin 'tomtom/tlib_vim'
+"Plugin 'vim-scripts/pydoc.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
