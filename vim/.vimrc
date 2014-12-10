@@ -26,6 +26,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
