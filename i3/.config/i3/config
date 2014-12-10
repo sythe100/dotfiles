@@ -214,5 +214,5 @@ assign [class="URxvt" title="ranger*"] → $WS5
 #exec "urxvt -e ranger"
 exec --no-startup-id i3-msg 'workspace "1:term"; exec "urxvt -e tmux"'
 exec --no-startup-id i3-msg 'workspace "2:web"; exec dwb'
-exec --no-startup-id i3-msg 'workspace "3:comms"; exec "urxvt -e irssi"; exec "urxvt -e mutt"'
+exec --no-startup-id i3-msg 'workspace "3:comms"; exec "urxvt -e mutt"'
 exec --no-startup-id i3-msg 'workspace "1:term"'
