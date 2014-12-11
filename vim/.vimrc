@@ -1,3 +1,7 @@
+if $SHELL =~ '/usr/bin/fish'
+    set shell=/bin/sh
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -8,17 +12,19 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
 "Plugin 'klen/rope-vim'
 "Plugin 'nvie/vim-flake8'
 "Plugin 'nvie/vim-pyunit'
 "Plugin 'tomtom/tlib_vim'
-"Plugin 'vim-scripts/pydoc.vim'
+Plugin 'dag/vim-fish'
+Plugin 'vim-scripts/pydoc.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
@@ -27,6 +33,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -130,7 +137,8 @@ endfunction
 nmap <F4> :call ToggleSpell()<CR>
 imap <F4> <ESC>:call toggleSpell()<CR>a
 
-set t_Co=16
+"set t_Co=16
+let g:solarized_termcolors=256
 set background=dark " dark | light "
 colorscheme solarized "set back to dante if solarized isn't cool
 set colorcolumn=80

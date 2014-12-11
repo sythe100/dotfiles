@@ -9,17 +9,17 @@ ZSH_THEME="agnoster"
 #ZSH_THEME="miloshadzic"
 
 # Aliases
-alias cp="/usr/local/bin/cp -g"
+alias cp='acp -g'
 alias e="exit"
 alias x="startx"
 alias ll='ls -lh'
 alias la='ls -a'
 alias df='df -h'
-alias mv='/usr/local/bin/mv -ig'
+alias mv='amv -g'
 alias rm='rm -I'
 alias exco='echo'
-alias shutdown='sudo systemctl poweroff'
-alias reboot='sudo systemctl reboot'
+alias shutdown='systemctl poweroff'
+alias reboot='systemctl reboot'
 alias prop='/home/aaron/scripts/xprop.sh'
 alias cdf_sh='/home/aaron/scripts/cdf.sh'
 alias home='cd /home/aaron'
@@ -28,6 +28,8 @@ alias shred='shred -u'
 alias booterror='sudo journalctl -b -rp3'
 alias ls='ls --group-directories-first --color=tty'
 alias svim='sudo vim'
+alias ev='vim ~/Dotfiles/vim/.vimrc'
+alias ez='vim ~/Dotfiles/zsh/.zshrc'
 #alias python='python2.7'
 
 # Set to this to use case-sensitive completion
