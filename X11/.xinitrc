@@ -14,7 +14,7 @@ feh --bg-scale /home/aaron/Wallpapers/simple/windy.png
 xrload lolitastic.theme
 
 #Enable compositing
-compton -cCb -o0
+#compton -cCb -o0
 
 # Start the window manager
 exec i3 
