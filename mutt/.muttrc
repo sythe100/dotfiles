@@ -109,7 +109,7 @@ push <show-version>
 source ~/.mutt/aliases
 source ~/.mutt/gpg.rc
 #source ~/.mutt/lists
-source $HOME/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+source $HOME/git_repos/solarized/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 
 set status_format="-%r-Mutt: %f --------[Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]-%>-----%h-(%P)"
 
