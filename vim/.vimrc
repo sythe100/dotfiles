@@ -173,7 +173,10 @@ set laststatus=2
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%h\ \ \ Line:\ %l/%L:%c
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source /home/aaron/.vimrc
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 
 " Gvim window size
 "set lines=35 columns=99
