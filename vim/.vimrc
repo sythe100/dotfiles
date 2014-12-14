@@ -1,6 +1,7 @@
 if $SHELL =~ '/usr/bin/fish'
     set shell=/bin/sh
 endif
+let mapleader = ","
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -14,10 +15,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'klen/rope-vim'
-"Plugin 'nvie/vim-flake8'
-"Plugin 'nvie/vim-pyunit'
-"Plugin 'tomtom/tlib_vim'
 Plugin 'dag/vim-fish'
 Plugin 'vim-scripts/pydoc.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -49,57 +46,59 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
 " Syntax Highlighting and Validation
 syntax enable
 filetype on
 filetype plugin indent on
 let g:pyflakes_use_quickfix = 0
 
+
 " Code folding
 set foldmethod=indent
 set foldlevel=99
 
-" Rope keybinding
-"map <leader>j :RopeGotoDefinition<CR>
-"map <leader>r :RopeRename<CR>
 
 " Ack Plugin
 nmap <leader>a <Esc>:Ack!
 
+
 " Gundo plugin
 nmap <leader>g :GundoToggle<CR>
 
-" Task lists
-map <leader>td <Plug>TaskList
-
-" Pep8 plugin
-"let g:pep8_map='<leader>8'
 
 " Nerdtreee
 map <C-n> :NERDTreeToggle<CR>
 
+
 " Show line numbers
 set number
+
 
 " Show cursor position
 set ruler
 
+
 " Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=999
+
 
 " Search settings
 set incsearch  " search as you type
 set ignorecase " ignore case when searching
 set smartcase  " 
 
+
 " Show autocomplete menus
 set wildmenu
+
 
 " Tab Completion and Documentation
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 set ofu=syntaxcomplete#Complete
+
 
 " Word Wrapping
 set formatoptions=l
@@ -123,6 +122,7 @@ map :Q :q!
 nmap j gj
 nmap k gk
 
+
 "Spell check
 function! ToggleSpell()
 	if !exists("b:spell")
@@ -136,6 +136,7 @@ endfunction
 
 nmap <F4> :call ToggleSpell()<CR>
 imap <F4> <ESC>:call toggleSpell()<CR>a
+
 
 "set t_Co=16
 let g:solarized_termcolors=256
@@ -152,13 +153,10 @@ set tabstop=4
 set expandtab
 set smarttab
 
+
 " Show editing mode
 set showmode
 
-" Paste from clipboard
-"nmap <c-v> "+gp
-" Copy to clipboard
-vmap <c-c> "+y
 
 " Mapping movement keys for split windows
 map <c-j> <c-w>j
@@ -166,20 +164,20 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+
 " Always show the status line
 set laststatus=2
 
+
 " Format the statusline
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%h\ \ \ Line:\ %l/%L:%c
+
 
 " When vimrc is edited, reload it
 if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-
-" Gvim window size
-"set lines=35 columns=99
 
 " Block comment mappings
 " Python comment
