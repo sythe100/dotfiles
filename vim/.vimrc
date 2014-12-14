@@ -21,11 +21,13 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'garbas/vim-snipmate'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'honza/vim-snippets'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
@@ -71,6 +73,14 @@ nmap <leader>g :GundoToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 
+" Configuration for Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+
 " Show line numbers
 set number
 
@@ -94,10 +104,10 @@ set wildmenu
 
 
 " Tab Completion and Documentation
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-set ofu=syntaxcomplete#Complete
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
+"set ofu=syntaxcomplete#Complete
 
 
 " Word Wrapping
