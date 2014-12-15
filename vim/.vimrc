@@ -1,6 +1,3 @@
-if $SHELL =~ '/usr/bin/fish'
-    set shell=/bin/sh
-endif
 let mapleader = ","
 
 set nocompatible              " be iMproved, required
@@ -15,7 +12,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'dag/vim-fish'
 Plugin 'vim-scripts/pydoc.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
@@ -76,8 +72,8 @@ map <C-n> :NERDTreeToggle<CR>
 " Configuration for Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<leader>l"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
@@ -104,10 +100,10 @@ set wildmenu
 
 
 " Tab Completion and Documentation
-"au FileType python set omnifunc=pythoncomplete#Complete
-"let g:SuperTabDefaultCompletionType = "context"
-"set completeopt=menuone,longest,preview
-"set ofu=syntaxcomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+set ofu=syntaxcomplete#Complete
 
 
 " Word Wrapping
