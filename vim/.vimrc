@@ -127,6 +127,8 @@ EOF
 map :Q :q!
 nmap j gj
 nmap k gk
+noremap :p :!python
+noremap :P :!python
 
 
 "Spell check
