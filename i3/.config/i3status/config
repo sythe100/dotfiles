@@ -8,7 +8,7 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 #order += "disk /"
@@ -16,6 +16,7 @@ general {
 order += "wireless wlan0"
 #order += "load"
 order += "battery 0"
+order += "volume master"
 order += "tztime local"
 
 wireless wlan0 {
@@ -55,4 +56,11 @@ disk "/" {
 
 disk "/home" {
         format = "/home %percentage_used (%used) used, %percentage_avail (%avail) avail %total total"
+}
+
+volume master {
+        format = "♪: %volume"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
