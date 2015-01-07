@@ -1,5 +1,4 @@
-let mapleader = ","
-
+" Vundle plugins and settings {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -43,7 +42,27 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" }}}
 
+" Autocommand groups {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" When vimrc is edited, reload it
+augroup vim_write
+    autocmd!
+    if has("autocmd")
+        autocmd bufwritepost .vimrc source $MYVIMRC
+    endif
+augroup END
+
+" }}}
+
+" Basic settings {{{
+
+let mapleader = ","
 
 " Syntax Highlighting and Validation
 syntax enable
@@ -55,27 +74,6 @@ let g:pyflakes_use_quickfix = 0
 " Code folding
 set foldmethod=indent
 set foldlevel=99
-
-
-" Ack Plugin
-nmap <leader>a <Esc>:Ack!
-
-
-" Gundo plugin
-nmap <leader>g :GundoToggle<CR>
-
-
-" Nerdtreee
-map <C-n> :NERDTreeToggle<CR>
-
-
-" Configuration for Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsListSnippets="<leader>l"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-
 
 " Show line numbers
 set number
@@ -98,14 +96,6 @@ set smartcase  "
 " Show autocomplete menus
 set wildmenu
 
-
-" Tab Completion and Documentation
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-set ofu=syntaxcomplete#Complete
-
-
 " Word Wrapping
 set formatoptions=l
 set lbr
@@ -122,29 +112,6 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-" Key Mappings
-map :Q :q!
-nmap j gj
-nmap k gk
-noremap :p :!python
-noremap :P :!python
-
-
-"Spell check
-function! ToggleSpell()
-	if !exists("b:spell")
-		setlocal spell spelllang=en_us
-		let b:spell = 1
-	else
-		setlocal nospell
-		unlet b:spell
-	endif
-endfunction
-
-nmap <F4> :call ToggleSpell()<CR>
-imap <F4> <ESC>:call toggleSpell()<CR>a
-
 
 "set t_Co=16
 let g:solarized_termcolors=256
@@ -165,14 +132,98 @@ set smarttab
 " Show editing mode
 set showmode
 
+"fix backspace issues
+set nocompatible
+set backspace=2
+
+" open file with all folds closed
+set foldlevelstart=0
+
+
+" }}}
+
+" Plugin mappings and configurations {{{
+" Ack Plugin
+nnoremap <leader>a <Esc>:Ack!
+
+
+" Gundo plugin
+nnoremap <leader>g :GundoToggle<CR>
+
+
+" Nerdtreee
+noremap <C-n> :NERDTreeToggle<CR>
+
+
+" Configuration for Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<leader>l"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+" Syntastic checkers
+" C checkers
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_auto_refresh_includes = 1
+let g:syntastic_c_compiler_options = '-ansi'
+" }}}
+
+" Python specific {{{
+
+" Tab Completion and Documentation
+augroup python
+    autocmd!
+    au FileType python set omnifunc=pythoncomplete#Complete
+augroup END
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+set ofu=syntaxcomplete#Complete
+" }}}
+
+" Key Mappings {{{
+noremap :Q :q!
+nnoremap j gj
+nnoremap k gk
+noremap :p :!python
+noremap :P :!python
+inoremap <c-u> <esc>eviwU
+nnoremap <c-u> eviwU
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ez :vsplit $HOME/.zshrc<cr>
+inoremap jk <esc>
+nnoremap H ^
+nnoremap L $
+inoremap <esc> <nop>
 
 " Mapping movement keys for split windows
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+" }}}
 
+" Abbreviations {{{
+" }}}
 
+" Functions {{{
+"Spell check
+function! ToggleSpell()
+	if !exists("b:spell")
+		setlocal spell spelllang=en_us
+		let b:spell = 1
+	else
+		setlocal nospell
+		unlet b:spell
+	endif
+endfunction
+
+nnoremap <F4> :call ToggleSpell()<CR>
+inoremap <F4> <ESC>:call toggleSpell()<CR>a
+
+" }}}
+
+" Status line {{{
 " Always show the status line
 set laststatus=2
 
@@ -180,32 +231,18 @@ set laststatus=2
 " Format the statusline
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%h\ \ \ Line:\ %l/%L:%c
 
-
-" When vimrc is edited, reload it
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
-
-" Block comment mappings
-" Python comment
-map ,# :s/^/#/<CR> 
-" C++ comment
-map ,/ :s/^/\/\//<CR>
-" Clear comments
-map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
-
-"fix backspace issues
-set nocompatible
-set backspace=2
-
 " Powerline entries
 set fillchars+=stl:\ ,stlnc:\
 set ambiwidth=single
 set guifont=Droid\ Sans\ Mono\ for\ Powerline
 
-" Syntastic checkers
-" C checkers
-let g:syntastic_c_check_header = 1
-let g:syntastic_c_auto_refresh_includes = 1
-let g:syntastic_c_compiler_options = '-ansi'
+" }}}
+
+" Block comment mappings ----- {{{
+" Python comment
+nnoremap ,# :s/^/#/<CR> 
+" C++ comment
+nnoremap ,/ :s/^/\/\//<CR>
+" Clear comments
+nnoremap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
+" }}}
