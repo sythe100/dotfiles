@@ -58,6 +58,11 @@ augroup vim_write
     endif
 augroup END
 
+augroup help_files
+    autocmd!
+    autocmd FileType help wincmd L
+augroup END
+
 " }}}
 
 " Basic settings {{{
