@@ -63,6 +63,15 @@ augroup help_files
     autocmd FileType help wincmd L
 augroup END
 
+augroup text
+    autocmd!
+    autocmd FileType text setlocal foldmethod=marker
+    autocmd FileType text setlocal background=light
+augroup END
+
+if has("autocmd")
+    au BufNewFile,BufRead *.htm* set ft=jinja
+endif
 " }}}
 
 " Basic settings {{{
@@ -172,6 +181,10 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_auto_refresh_includes = 1
 let g:syntastic_c_compiler_options = '-ansi'
+
+" Pymode
+let g:pymode_rope_autoimport=0
+let g:pymode=0
 " }}}
 
 " Python specific {{{

@@ -30,6 +30,7 @@ alias ls='ls --group-directories-first --color=tty'
 alias svim='sudo vim'
 alias ev='vim ~/Dotfiles/vim/.vimrc'
 alias ez='vim ~/Dotfiles/zsh/.zshrc'
+alias lfs='. ./scripts/lfs.zsh'
 #alias python='python2.7'
 
 # Set to this to use case-sensitive completion
@@ -76,3 +77,4 @@ export PYTHONPATH=/usr/lib/python3.4/site-packages
 export EDITOR="vim"
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
+#source /usr/share/doc/pkgfile/command-not-found.zsh
