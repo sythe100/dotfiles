@@ -73,7 +73,6 @@ DEFAULT_USER="aaron"
 bindkey -v # sets the commandline to use  vi keybinds vice emacs.
 
 # Environment Variables
-export PYTHONPATH=/usr/lib/python3.4/site-packages
 export EDITOR="vim"
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
