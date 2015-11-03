@@ -27,7 +27,7 @@ alias transmission='transmission-gtk'
 alias shred='shred -u'
 alias booterror='sudo journalctl -b -rp3'
 alias ls='ls --group-directories-first --color=tty'
-alias svim='sudo vim'
+alias svim='sudo PYTHONPATH=/usr/lib/python3.5/site-packages vim'
 alias ev='vim ~/Dotfiles/vim/.vimrc'
 alias ez='vim ~/Dotfiles/zsh/.zshrc'
 alias lfs='. ./scripts/lfs.zsh'
@@ -74,6 +74,7 @@ bindkey -v # sets the commandline to use  vi keybinds vice emacs.
 
 # Environment Variables
 export EDITOR="vim"
+export PYTHONPATH=/usr/lib/python3.5/site-packages
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 #source /usr/share/doc/pkgfile/command-not-found.zsh
